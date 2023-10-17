@@ -163,7 +163,7 @@ class TwoStack{
         int start=top1;
         int end=top2;
        
-};
+}};
 int main(){
     TwoStack st(5);
     st.push1(1);
@@ -178,5 +178,4 @@ int main(){
 }
 
 
-//Implement stack in arra using linke lis
-
+//Implement stack in arra using linke list
