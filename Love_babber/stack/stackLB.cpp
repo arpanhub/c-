@@ -1,5 +1,6 @@
 //line->2------------------Stack implementation using array-------------------
 //line->86------------------Design o data structure. which represents two stocks using only one array common for both-------------------
+//line->187--------------------------Implement stack in arra using linke list
 
 
 
