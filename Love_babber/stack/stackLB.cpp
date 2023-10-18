@@ -184,54 +184,70 @@
 
 //Implement stack in arra using linke list
 #include <iostream>
-using  namespace std;
+using namespace std;
+
 struct Node
 {
     int data;
-    struct Node *next;
+    struct Node* next;
 };
-void push(struct Node **top,int value){
-    Node *newNode = new Node();
-    newNode -> data= value;
-    newNode->next= *top;
-    *top=newNode;
 
+void push(struct Node** top, int value)
+{
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = *top;
+    *top = newNode;
 }
-void pop(struct Node **top){
-    if(*top == NULL){
-        cout<<"The stack is empty";
+
+void pop(struct Node** top)
+{
+    if (*top == NULL)
+    {
+        cout << "The stack is empty";
         return;
     }
-    struct  Node *temp = *top;
-    *top=temp->next;
-    free(top);
-} 
-void display(struct Node *top){
-        struct Node *temp= top;
-        while(temp !=NULL){
-            cout<<temp->data<<" ";
-            temp = temp ->next;
-        }
-        cout<<endl; 
+    struct Node* temp = *top;
+    *top = temp->next;
+    free(temp); // Corrected from free(top)
 }
-int main(){
-    struct Node *top = NULL;
-    while(1){
-        int choice,value;
-        cin>>choice;
-        if(choice == 1){
-            cin>> value;
-            push(&top,value);
+
+void display(struct Node* top)
+{
+    struct Node* temp = top;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    struct Node* top = NULL;
+    while (true)
+    {
+        int choice, value;
+        cin >> choice;
+        if (choice == 1)
+        {
+            cin >> value;
+            push(&top, value);
         }
-        else if(choice == 2){
+        else if (choice == 2)
+        {
             pop(&top);
         }
-        else if(choice == 3){
+        else if (choice == 3)
+        {
             display(top);
         }
-        else{
-            exit(0);    
+        else
+        {
+            break; // Changed from exit(0)
         }
     }
     return 0;
 }
+
