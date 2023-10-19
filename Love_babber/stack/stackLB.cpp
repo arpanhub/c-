@@ -184,71 +184,132 @@
 
 
 //Implement stack in arra using linke list
+// #include <iostream>
+// using namespace std;
+
+// struct Node
+// {
+//     int data;
+//     struct Node* next;
+// };
+
+// void push(struct Node** top, int value)
+// {
+//     Node* newNode = new Node();
+//     newNode->data = value;
+//     newNode->next = *top;
+//     *top = newNode;
+// }
+
+// void pop(struct Node** top)
+// {
+//     if (*top == NULL)
+//     {
+//         cout << "The stack is empty";
+//         return;
+//     }
+//     struct Node* temp = *top;
+//     *top = temp->next;
+//     free(temp); // Corrected from free(top)
+// }
+
+// void display(struct Node* top)
+// {
+//     struct Node* temp = top;
+//     while (temp != NULL)
+//     {
+//         cout << temp->data << " ";
+//         temp = temp->next;
+//     }
+//     cout << endl;
+// }
+
+// int main()
+// {
+//     struct Node* top = NULL;
+//     while (true)
+//     {
+//         int choice, value;
+//         cin >> choice;
+//         if (choice == 1)
+//         {
+//             cin >> value;
+//             push(&top, value);
+//         }
+//         else if (choice == 2)
+//         {
+//             pop(&top);
+//         }
+//         else if (choice == 3)
+//         {
+//             display(top);
+//         }
+//         else
+//         {
+//             break; // Changed from exit(0)
+//         }
+//     }
+//     return 0;
+// }
+
+//Stack program to The first line contains an integer n, representing the number of elements Lala wants to push onto the stack.
 #include <iostream>
 using namespace std;
-
-struct Node
-{
-    int data;
-    struct Node* next;
-};
-
-void push(struct Node** top, int value)
-{
-    Node* newNode = new Node();
-    newNode->data = value;
-    newNode->next = *top;
-    *top = newNode;
-}
-
-void pop(struct Node** top)
-{
-    if (*top == NULL)
-    {
-        cout << "The stack is empty";
-        return;
+class Stack{
+    public:
+    int arr[15];
+    int top;
+    Stack(){
+        top=-1;
     }
-    struct Node* temp = *top;
-    *top = temp->next;
-    free(temp); // Corrected from free(top)
-}
-
-void display(struct Node* top)
-{
-    struct Node* temp = top;
-    while (temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
-}
-
-int main()
-{
-    struct Node* top = NULL;
-    while (true)
-    {
-        int choice, value;
-        cin >> choice;
-        if (choice == 1)
-        {
-            cin >> value;
-            push(&top, value);
-        }
-        else if (choice == 2)
-        {
-            pop(&top);
-        }
-        else if (choice == 3)
-        {
-            display(top);
+    void push(int x){
+        if(top >=14){
+            cout<<"stack Overflow"<<endl;
         }
         else
         {
-            break; // Changed from exit(0)
+            arr[++top]=x;
+            top++;
         }
     }
-    return 0;
-}
+    void pop(int &x){
+        if(top <0){
+            cout<<"stack underflow"<<endl;
+        }
+        else
+        {
+            x= arr[top--]=x;
+            
+        }
+    }
+    void display(){
+        for(int i =0 ;i<=top;i++){
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
+    bool isEmpty(){
+        return top < 0;
+    }
 
+};
+int main(){
+    Stack st;
+    int n,x;
+    cin>> n;
+    for (int i= 0; i<n;i++){
+        cin>>x;
+        st.push(x);
+    }
+    st.display();
+    if(!st.isEmpty()){
+        st.pop(x);
+        cout<<"The top element is:"<<x<<endl;;
+        st.display();
+    }
+    else{
+        cout<<"stack is empty";
+    }
+    return 0;
+
+}
