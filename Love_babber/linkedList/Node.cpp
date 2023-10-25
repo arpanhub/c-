@@ -364,7 +364,13 @@ public:
         if(head != NULL) {
             head->prev = new_node;
         }
+		if(head == NULL){
+			head =new_node;
+			tail = new_node;
+			return ;
+		}
         head = new_node;
+		
     }
     void display() {
         Node* ptr;

@@ -11,7 +11,6 @@ class Node{
         right= NULL;
 
     }
-};
 void inorder(Node* root){
     if(root == nullptr)
         return;
@@ -20,6 +19,8 @@ void inorder(Node* root){
     inorder(root->right);
     //cout<<root->data<<" ";
 }
+};
+
 int main(){
     Node* n1= new Node(1);
     Node* n2= new Node(2);
@@ -36,5 +37,12 @@ int main(){
     n3->left=n6;
     n3->right=n7;
     inorder(root);
+    while(true){
+        int val;
+        cin>>val;
+        root=insert(root,val);
+        int exit;
+        cin>>val;
+    }
     return 0;
  }

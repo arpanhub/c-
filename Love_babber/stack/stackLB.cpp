@@ -1,85 +1,86 @@
 //line->2------------------Stack implementation using array-------------------
 //line->86------------------Design o data structure. which represents two stocks using only one array common for both-------------------
 //line->187--------------------------Implement stack in arra using linke list
+//line->256--------------------------- Stack program to The first line contains an integer n, representing the number of elements Lala wants to push onto the stack.
+//line->304-----------------------postfix using stack
 
 
+#include <iostream>
+#include <stack>
+using namespace std;
 
-// #include <iostream>
-// #include <stack>
-// using namespace std;
+class Stack{ 
+    public:
+        int *arr;
+        int top;
+        int size;
+    Stack(int size){
+        this-> size=size;
+        arr= new int[size];
+        top = -1;
+    }
+    void push(int element){
+        if(size - top>1){
+            top++;
+            arr[top]=element;
+        }
+        else{
+            cout<<"Stack Overflow"<<endl;
+            }
+    }
 
-// class Stack{ 
-//     public:
-//         int *arr;
-//         int top;
-//         int size;
-//     Stack(int size){
-//         this-> size=size;
-//         arr= new int[size];
-//         top = -1;
-//     }
-//     void push(int element){
-//         if(size - top>1){
-//             top++;
-//             arr[top]=element;
-//         }
-//         else{
-//             cout<<"Stack Overflow"<<endl;
-//             }
-//     }
+    void pop(){
+        if(top >= 0){
+                top--;
+        }
+        else{
+            cout<<"stack underflow"<<endl;
 
-//     void pop(){
-//         if(top >= 0){
-//                 top--;
-//         }
-//         else{
-//             cout<<"stack underflow"<<endl;
+        }
+    }
+    int peek(){
+        if(top > -1 && top<size){
+            return arr[top];
+        }
+        else{
+            cout<<"Stack is empty:)"<<endl;
+            return -1;
+        }
+    }
 
-//         }
-//     }
-//     int peek(){
-//         if(top > -1 && top<size){
-//             return arr[top];
-//         }
-//         else{
-//             cout<<"Stack is empty:)"<<endl;
-//             return -1;
-//         }
-//     }
+    bool isEmpty(){
+        if(top==-1){
+            return true;
 
-//     bool isEmpty(){
-//         if(top==-1){
-//             return true;
+        }
+        else
+        return false;
 
-//         }
-//         else
-//         return false;
+    }
 
-//     }
-
-// };
-// int main(){
-//     Stack st(5);
-//     st.push(1);
-//     st.push(2);
-//     st.push(3);
-//     st.push(3);
-//     st.push(3);
-//     cout<<st.peek()<<endl;
-//     st.pop();
-//      cout<<st.peek()<<endl;
-//      st.pop();
-//      cout<<st.peek()<<endl;
-//      st.pop();
-//      st.pop();
-//     cout<<st.peek()<<endl;
-//     if(st.isEmpty()){
-//         cout<<"stack is empty broski";
-//     }
-//     else{
-//         cout<<"stack is not empty broski";
-//     }
-// }
+};
+int main(){
+     Stack st(5);
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(3);
+    st.push(3);
+    cout<<st.peek()<<endl;
+    st.pop();
+     cout<<st.peek()<<endl;
+     st.pop();
+     cout<<st.peek()<<endl;
+     st.pop();
+     st.pop();
+    cout<<st.peek()<<endl;
+    if(st.isEmpty()){
+        cout<<"stack is empty broski";
+    }
+    else{
+        cout<<"stack is not empty broski";
+    }
+}
 //------------------------------------------------------------------------------
 
 
@@ -251,65 +252,101 @@
 //     }
 //     return 0;
 // }
-
-//Stack program to The first line contains an integer n, representing the number of elements Lala wants to push onto the stack.
-#include <iostream>
-using namespace std;
-class Stack{
-    public:
-    int arr[15];
-    int top;
-    Stack(){
-        top=-1;
-    }
-    void push(int x){
-        if(top >=14){
-            cout<<"stack Overflow"<<endl;
-        }
-        else
-        {
-            arr[++top]=x;
-            top++;
-        }
-    }
-    void pop(int &x){
-        if(top <0){
-            cout<<"stack underflow"<<endl;
-        }
-        else
-        {
-            x= arr[top--]=x;
+// #include <iostream>
+// using namespace std;
+// class Stack{
+//     public:
+//     int arr[15];
+//     int top;
+//     Stack(){
+//         top=-1;
+//     }
+//     void push(int x){
+//         if(top >=14){
+//             cout<<"stack Overflow"<<endl;
+//         }
+//         else
+//         {
+//             arr[++top]=x;
+//             top++;
+//         }
+//     }
+//     void pop(int &x){
+//         if(top <0){
+//             cout<<"stack underflow"<<endl;
+//         }
+//         else
+//         {
+//             x= arr[top--]=x;
             
-        }
-    }
-    void display(){
-        for(int i =0 ;i<=top;i++){
-            cout<<arr[i]<<" ";
-        }
-        cout<<endl;
-    }
-    bool isEmpty(){
-        return top < 0;
-    }
+//         }
+//     }
+//     void display(){
+//         for(int i =0 ;i<=top;i++){
+//             cout<<arr[i]<<" ";
+//         }
+//         cout<<endl;
+//     }
+//     bool isEmpty(){
+//         return top < 0;
+//     }
 
-};
-int main(){
-    Stack st;
-    int n,x;
-    cin>> n;
-    for (int i= 0; i<n;i++){
-        cin>>x;
-        st.push(x);
+// };
+// int main(){
+//     Stack st;
+//     int n,x;
+//     cin>> n;
+//     for (int i= 0; i<n;i++){
+//         cin>>x;
+//         st.push(x);
+//     }
+//     st.display();
+//     if(!st.isEmpty()){
+//         st.pop(x);
+//         cout<<"The top element is:"<<x<<endl;;
+//         st.display();
+//     }
+//     else{
+//         cout<<"stack is empty";
+//     }
+//     return 0;
+//--------------------------------------------------------------------------------
+
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int prec(char c){
+    if(c=='^'){
+        return 3;
     }
-    st.display();
-    if(!st.isEmpty()){
-        st.pop(x);
-        cout<<"The top element is:"<<x<<endl;;
-        st.display();
+    if(c=='/' || c== '*'){
+        return 2;
+    }
+    if(c=='-' || c== '+'){
+        return 1;
     }
     else{
-        cout<<"stack is empty";
+        return -1;
     }
+}
+
+void  infixToPostfix(string s){
+    stack<char> st;
+    st.push('$');
+    int l = s.length();
+    string ns;
+    for(int i=0;i <l;i++)
+    {
+        ns=ns+s[i];
+    }
+}
+
+int main(){
+    string exp;
+    cin>> exp;
+    infixToPostfix(exp);
     return 0;
 
 }
