@@ -335,9 +335,80 @@ int main() {
 //----------------------------doubly linked list
 
 
+// #include <iostream>
+// using namespace std;
+
+// class Node {
+// public:
+//     int data;
+//     Node* prev;
+//     Node* next;
+//     Node(int d) {
+//         data = d;
+//         prev = NULL;
+//         next = NULL;
+//     }
+// };
+
+// class DoublyLinkedList {
+// public:
+//     Node* head;
+//     Node* tail;
+//     DoublyLinkedList() {
+//         head = NULL;
+// 		tail = NULL;
+//     }
+//     void insert(int new_data) {
+//         Node* new_node = new Node(new_data);
+//         new_node->next = head;
+//         if(head != NULL) {
+//             head->prev = new_node;
+//         }
+// 		if(head == NULL){
+// 			head =new_node;
+// 			tail = new_node;
+// 			return ;
+// 		}
+//         head = new_node;
+		
+//     }
+//     void display() {
+//         Node* ptr;
+//         ptr = head;
+//         while(ptr != NULL) {
+//             cout<< ptr->data <<" ";
+//             ptr = ptr->next;
+//         }
+// 		cout<<endl;
+//     }
+// 	//cout<<endl;
+//     void Reversedisplay() {
+//         Node* ptr;
+//         ptr = tail;
+//         while(ptr != NULL) {
+//             cout<< ptr->data <<" ";
+//             ptr = ptr->prev;
+//         }
+//     }
+// };
+
+// int main() {
+//     DoublyLinkedList dll;
+//     dll.insert(1);
+//     dll.insert(7);
+//     dll.insert(2);
+//     dll.insert(9);
+//     cout<<"The doubly linked list is: ";
+//     dll.display();
+//     cout<<"The  Reverse doubly linked list is: ";
+//     dll.Reversedisplay();
+//     return 0;
+// }
+
+
+
 #include <iostream>
 using namespace std;
-
 class Node {
 public:
     int data;
@@ -349,59 +420,3 @@ public:
         next = NULL;
     }
 };
-
-class DoublyLinkedList {
-public:
-    Node* head;
-    Node* tail;
-    DoublyLinkedList() {
-        head = NULL;
-		tail = NULL;
-    }
-    void insert(int new_data) {
-        Node* new_node = new Node(new_data);
-        new_node->next = head;
-        if(head != NULL) {
-            head->prev = new_node;
-        }
-		if(head == NULL){
-			head =new_node;
-			tail = new_node;
-			return ;
-		}
-        head = new_node;
-		
-    }
-    void display() {
-        Node* ptr;
-        ptr = head;
-        while(ptr != NULL) {
-            cout<< ptr->data <<" ";
-            ptr = ptr->next;
-        }
-		cout<<endl;
-    }
-	//cout<<endl;
-    void Reversedisplay() {
-        Node* ptr;
-        ptr = tail;
-        while(ptr != NULL) {
-            cout<< ptr->data <<" ";
-            ptr = ptr->prev;
-        }
-    }
-};
-
-int main() {
-    DoublyLinkedList dll;
-    dll.insert(1);
-    dll.insert(7);
-    dll.insert(2);
-    dll.insert(9);
-    cout<<"The doubly linked list is: ";
-    dll.display();
-    cout<<"The  Reverse doubly linked list is: ";
-    dll.Reversedisplay();
-    return 0;
-}
-

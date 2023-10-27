@@ -3,6 +3,7 @@
     "files.associations": {
         "*.htm": "html",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "functional": "cpp"
     }
 }
